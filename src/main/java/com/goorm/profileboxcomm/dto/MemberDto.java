@@ -18,6 +18,6 @@ public class MemberDto {
         this.memberType = member.getMemberType().toString();
         this.gender = member.getMemberGender();
         this.telNo = member.getMemberTelNo();
-        this.birthDt = member.getMemberBirthDt();
+        this.birthDt = member.getMemberBirthDt().toString();
     }
 }

@@ -25,6 +25,7 @@ public class Video {
     @Column(name = "file_path")
     private String filePath;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_dt")
     private LocalDateTime createDt;
 
@@ -35,10 +36,10 @@ public class Video {
 
     // Getters and Setters
     @PrePersist
-    public void prePersist() {
-        createDt = LocalDateTime.now();
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        createDt = now;
     }
-
 
     // Constructor
     public static Video createVideo(CreateVideoRequestDto videoDto, Profile profile) {

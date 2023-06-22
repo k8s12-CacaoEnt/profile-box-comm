@@ -28,8 +28,13 @@ public class Filmo {
     @Column(name = "filmo_director")
     private String filmoDirector;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_dt")
     private LocalDateTime createDt;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "modify_dt")
+    private LocalDateTime modifyDt;
 
     // One-to-One relationship with Image entity
 //    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -37,8 +42,14 @@ public class Filmo {
 //    private Image filmoImage;
 
     @PrePersist
-    public void prePersist() {
-        createDt = LocalDateTime.now();
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        createDt = now;
+    }
+
+    @PreUpdate
+    protected void onModify() {
+        modifyDt = LocalDateTime.now();
     }
 
     // Many-to-One relationship with Profile entity

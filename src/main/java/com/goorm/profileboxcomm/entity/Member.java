@@ -5,13 +5,15 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Entity
 @Table(name= "member")
 @Getter
 @Setter
 //@NoArgsConstructor
 public class Member {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
@@ -34,8 +36,17 @@ public class Member {
     @Column(name = "member_tel_no")
     private String memberTelNo;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "member_birth_dt")
+    private Date memberBirthDt;
+
     @Temporal(TemporalType.TIMESTAMP)
-    private String memberBirthDt;
+    @Column(name = "create_dt")
+    private LocalDateTime createDt;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "modify_dt")
+    private LocalDateTime modifyDt;
 
     // One-to-Many relationship with Image entity
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -46,4 +57,16 @@ public class Member {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "member_id")
     private Profile profile;
+
+    @PrePersist
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        createDt = now;
+        modifyDt = now;
+    }
+
+    @PreUpdate
+    protected void onModify() {
+        modifyDt = LocalDateTime.now();
+    }
 }

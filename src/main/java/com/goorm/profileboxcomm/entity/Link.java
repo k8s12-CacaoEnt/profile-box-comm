@@ -22,6 +22,7 @@ public class Link {
     @Column(name = "link_name")
     private String linkName;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_dt")
     private LocalDateTime createDt;
 
@@ -32,8 +33,9 @@ public class Link {
 
     // Getters and Setters
     @PrePersist
-    public void prePersist() {
-        createDt = LocalDateTime.now();
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        createDt = now;
     }
 
     // Constructor

@@ -15,6 +15,7 @@ import static java.util.stream.Collectors.toList;
 @Getter
 @Setter
 public class Profile {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long profileId;
@@ -28,8 +29,13 @@ public class Profile {
     @Column(name = "default_image_id")
     private Long defaultImageId;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_dt")
     private LocalDateTime createDt;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "modify_dt")
+    private LocalDateTime modifyDt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
@@ -51,12 +57,17 @@ public class Profile {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", orphanRemoval = true)
     private List<Link> links;
 
-    // Getters and Setters
     @PrePersist
-    public void prePersist() {
-        createDt = LocalDateTime.now();
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        createDt = now;
+        modifyDt = now;
     }
 
+    @PreUpdate
+    protected void onModify() {
+        modifyDt = LocalDateTime.now();
+    }
 
 
     // Constructor

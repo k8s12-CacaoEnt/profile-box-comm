@@ -22,7 +22,7 @@ public class SelectMemberResponseDto {
         this.memberName = member.getMemberName();
         this.gender = member.getMemberGender();
         this.telNo = member.getMemberTelNo();
-        this.birthDt = member.getMemberBirthDt();
+        this.birthDt = member.getMemberBirthDt().toString();
 //        this.profile = convertProfilesToDto(member.getProfiles());
     }
 

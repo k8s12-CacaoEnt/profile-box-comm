@@ -25,6 +25,7 @@ public class Image {
     @Column(name = "file_real_name")
     private String fileRealName;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_dt")
     private LocalDateTime createDt;
 
@@ -33,12 +34,11 @@ public class Image {
     @JoinColumn(name = "profile_id")
     private Profile profile;
 
-    // Getters and Setters
     @PrePersist
-    public void prePersist() {
-        createDt = LocalDateTime.now();
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        createDt = now;
     }
-
 
     // Constructor
     public static Image createImage(CreateImageRequestDto imageDto, Profile profile) {
