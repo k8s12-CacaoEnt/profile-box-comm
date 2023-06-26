@@ -1,6 +1,6 @@
 package com.goorm.profileboxcomm.dto.filmo.response;
 
-import com.goorm.profileboxcomm.entity.Filmo;
+import com.goorm.profileboxcomm.entity.FilmoEntity;
 import com.goorm.profileboxcomm.entity.enumeration.FilmoType;
 import lombok.Data;
 
@@ -14,13 +14,13 @@ public class SelectFilmoResponseDto {
     private String createDt;
 //    private SelectImageResponseDto filmoImage;
 
-    public SelectFilmoResponseDto(Filmo filmo) {
-        this.filmoId = filmo.getFilmoId().toString();
-        this.filmoType = filmo.getFilmoType();
-        this.filmoName = filmo.getFilmoName();
-        this.filmoYear = filmo.getFilmoYear();
-        this.filmoDirector = filmo.getFilmoDirector();
-        this.createDt = filmo.getCreateDt().toString();
+    public SelectFilmoResponseDto(FilmoEntity filmoEntity) {
+        this.filmoId = filmoEntity.getFilmoId().toString();
+        this.filmoType = filmoEntity.getFilmoType();
+        this.filmoName = filmoEntity.getFilmoName();
+        this.filmoYear = filmoEntity.getFilmoYear();
+        this.filmoDirector = filmoEntity.getFilmoDirector();
+        this.createDt = filmoEntity.getCreateDt().toString();
 //        this.filmoImage = (filmo.getFilmoImage() != null) ? new SelectImageResponseDto(filmo.getFilmoImage()) : new SelectImageResponseDto();
     }
 }

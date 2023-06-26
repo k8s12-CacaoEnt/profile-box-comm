@@ -1,6 +1,6 @@
 package com.goorm.profileboxcomm.dto.link.response;
 
-import com.goorm.profileboxcomm.entity.Link;
+import com.goorm.profileboxcomm.entity.LinkEntity;
 import lombok.Data;
 
 @Data
@@ -10,10 +10,10 @@ public class SelectLinkResponseDto {
     private String linkName;
     private String createDt;
 
-    public SelectLinkResponseDto(Link link) {
-        this.linkId = link.getLinkId().toString();
-        this.link = link.getLink();
-        this.linkName = link.getLinkName();
-        this.createDt = link.getCreateDt().toString();
+    public SelectLinkResponseDto(LinkEntity linkEntity) {
+        this.linkId = linkEntity.getLinkId().toString();
+        this.link = linkEntity.getLink();
+        this.linkName = linkEntity.getLinkName();
+        this.createDt = linkEntity.getCreateDt().toString();
     }
 }
