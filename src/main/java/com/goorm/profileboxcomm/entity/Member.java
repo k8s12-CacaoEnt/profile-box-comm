@@ -22,6 +22,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name= "member", uniqueConstraints = {@UniqueConstraint(columnNames = "member_email")})
 public class Member {
+
     @Id
     @Column(name="member_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -88,6 +89,7 @@ public class Member {
         modifyDt = LocalDateTime.now();
     }
 
+    // method
     public static MemberDTO toDTO(Member entity){
         return MemberDTO.builder()
                 .id(entity.getMemberId())

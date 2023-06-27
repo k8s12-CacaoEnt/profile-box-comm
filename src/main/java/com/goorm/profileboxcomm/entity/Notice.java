@@ -21,6 +21,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name="notice")
 public class Notice {
+
     @Id
     @Column(name="notice_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -89,6 +90,7 @@ public class Notice {
         modifyDt = LocalDateTime.now();
     }
 
+    // method
     public static NoticeDTO toDTO(Notice entity){
         return NoticeDTO.builder()
                 .noticeId(entity.getNoticeId())

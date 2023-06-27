@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 @Getter
 @ToString
 public enum ExceptionEnum {
-    RUNTIME_EXCEPTION(HttpStatus.BAD_REQUEST, "E0001"),
+    RUNTIME_EXCEPTION(HttpStatus.BAD_REQUEST, "E0001", "런타임 에러입니다."),
     ACCESS_DENIED_EXCEPTION(HttpStatus.UNAUTHORIZED, "E0002"),
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "E0003"),
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "E0004", "멤버가 존재하지 않습니다."),

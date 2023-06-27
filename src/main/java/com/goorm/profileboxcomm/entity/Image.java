@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name = "image")
 public class Image {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long imgageId;
@@ -42,11 +43,9 @@ public class Image {
     @Column(name = "create_dt")
     private LocalDateTime createDt;
 
-    // Many-to-One relationship with Profile entity
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id")
     @JsonBackReference
-//    @JsonIgnore
     private Profile profile;
 
     @PrePersist
@@ -55,14 +54,14 @@ public class Image {
         createDt = now;
     }
 
-    // Constructor
+    // method
     public static Image createImage(CreateImageRequestDto imageDto, Profile profile) {
-        Image image = new Image();
-        image.setFileName(imageDto.getFileName());
-        image.setFilePath(imageDto.getFilePath());
-        image.setFileRealName(imageDto.getFileRealName());
-        image.setProfile(profile);
-        return image;
+        return Image.builder()
+                .fileName(imageDto.getFileName())
+                .fileRealName(imageDto.getFileRealName())
+                .filePath(imageDto.getFilePath())
+                .profile(profile)
+                .build();
     }
-   }
+}
 

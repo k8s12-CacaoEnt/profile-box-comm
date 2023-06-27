@@ -13,16 +13,10 @@ import lombok.ToString;
 public class ApiResult{
     private String status;
     private String message;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object data;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private ApiExceptionEntity exception;
-
-    @Builder
-    public ApiResult(String status, String message, Object data) {
-        this.status = status;
-        this.message = message;
-        this.data = data;
-    }
 
     @Builder
     public ApiResult(String status, String message, Object data, ApiExceptionEntity exception) {

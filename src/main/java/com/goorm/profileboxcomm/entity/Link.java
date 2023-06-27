@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name = "link")
 public class Link {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long linkId;
@@ -37,11 +38,9 @@ public class Link {
     @Column(name = "create_dt")
     private LocalDateTime createDt;
 
-    // Many-to-One relationship with Profile entity
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id")
     @JsonBackReference
-//    @JsonIgnore
     private Profile profile;
 
     // Getters and Setters
@@ -51,12 +50,12 @@ public class Link {
         createDt = now;
     }
 
-    // Constructor
+    // method
     public static Link createLink(CreateLinkRequestDto linkDto, Profile profile) {
-        Link link = new Link();
-        link.setLink(linkDto.getLink());
-        link.setLinkName(linkDto.getLinkName());
-        link.setProfile(profile);
-        return link;
+        return Link.builder()
+                .link(linkDto.getLink())
+                .linkName(linkDto.getLinkName())
+                .profile(profile)
+                .build();
     }
 }

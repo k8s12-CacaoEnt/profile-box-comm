@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name = "video")
 public class Video {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long videoId;
@@ -42,11 +43,9 @@ public class Video {
     @Column(name = "create_dt")
     private LocalDateTime createDt;
 
-    // Many-to-One relationship with Profile entity
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id")
     @JsonBackReference
-//    @JsonIgnore
     private Profile profile;
 
     // Getters and Setters
@@ -56,13 +55,13 @@ public class Video {
         createDt = now;
     }
 
-    // Constructor
+    // method
     public static Video createVideo(CreateVideoRequestDto videoDto, Profile profile) {
-        Video video = new Video();
-        video.setFileName(videoDto.getFileName());
-        video.setFilePath(videoDto.getFilePath());
-        video.setFileRealName(videoDto.getFileRealName());
-        video.setProfile(profile);
-        return video;
+        return Video.builder()
+                .fileName(videoDto.getFileName())
+                .fileRealName(videoDto.getFileRealName())
+                .filePath(videoDto.getFilePath())
+                .profile(profile)
+                .build();
     }
 }

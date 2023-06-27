@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name = "filmo")
 public class Filmo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long filmoId;
@@ -51,13 +52,12 @@ public class Filmo {
     @Column(name = "modify_dt")
     private LocalDateTime modifyDt;
 
-    // Many-to-One relationship with Profile entity
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id")
     @JsonBackReference
-//    @JsonIgnore
     private Profile profile;
 
+    // Getters and Setters
     @PrePersist
     protected void onCreate() {
         LocalDateTime now = LocalDateTime.now();
@@ -69,6 +69,7 @@ public class Filmo {
         modifyDt = LocalDateTime.now();
     }
 
+    // method
     public static Filmo createFilmo(CreateFilmoRequestDto filmoDto, Profile profile) {
         return Filmo.builder()
                 .filmoType(filmoDto.getFilmoType())

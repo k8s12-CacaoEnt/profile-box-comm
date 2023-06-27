@@ -61,17 +61,14 @@ public class Profile {
     private List<Image> imageEntities;
 
     @JsonManagedReference
-//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "videoId")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", orphanRemoval = true)
     private List<Video> videoEntities;
 
     @JsonManagedReference
-//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "filmoId")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", orphanRemoval = true)
     private List<Filmo> filmoEntities;
 
     @JsonManagedReference
-//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "linkId")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", orphanRemoval = true)
     private List<Link> linkEntities;
 
@@ -87,6 +84,7 @@ public class Profile {
         modifyDt = LocalDateTime.now();
     }
 
+    // method
     public static Profile createProfile(CreateProfileRequestDto profileDto, Member member) {
         return Profile.builder()
                 .title(profileDto.getTitle())
@@ -94,21 +92,6 @@ public class Profile {
                 .member(member)
                 .build();
     }
-
-    public void addImage(Image image) {
-        this.imageEntities.add(image);
-    }
-    public void addVideo(Video video) {
-        this.videoEntities.add(video);
-    }
-    public void addFilmo(Filmo filmo) {
-        this.filmoEntities.add(filmo);
-    }
-    public void addLink(Link link) {
-        this.linkEntities.add(link);
-    }
-
-
 
     public static ProfileDTO toDTO(Profile entity){
         return ProfileDTO.builder()
