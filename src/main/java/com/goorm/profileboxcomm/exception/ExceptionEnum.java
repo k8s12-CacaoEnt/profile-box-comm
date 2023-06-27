@@ -1,4 +1,4 @@
-package com.goorm.profileboxcomm.enumeration;
+package com.goorm.profileboxcomm.exception;
 
 import lombok.Getter;
 import lombok.ToString;

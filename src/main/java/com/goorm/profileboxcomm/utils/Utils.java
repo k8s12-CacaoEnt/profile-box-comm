@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.utils;
 
-import com.goorm.profileboxcomm.enumeration.ExceptionEnum;
+import com.goorm.profileboxcomm.exception.ExceptionEnum;
+import com.goorm.profileboxcomm.exception.ApiException;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;

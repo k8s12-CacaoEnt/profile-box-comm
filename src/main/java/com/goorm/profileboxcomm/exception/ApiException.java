@@ -1,6 +1,5 @@
-package com.goorm.profileboxcomm.utils;
+package com.goorm.profileboxcomm.exception;
 
-import com.goorm.profileboxcomm.enumeration.ExceptionEnum;
 import lombok.Getter;
 
 @Getter

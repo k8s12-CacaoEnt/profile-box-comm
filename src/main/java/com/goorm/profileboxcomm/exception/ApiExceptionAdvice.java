@@ -1,6 +1,6 @@
-package com.goorm.profileboxcomm.utils;
+package com.goorm.profileboxcomm.exception;
 
-import com.goorm.profileboxcomm.enumeration.ExceptionEnum;
+import com.goorm.profileboxcomm.response.ApiResult;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

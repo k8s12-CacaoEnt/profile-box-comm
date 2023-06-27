@@ -1,4 +1,4 @@
-package com.goorm.profileboxcomm.utils;
+package com.goorm.profileboxcomm.exception;
 
 import lombok.Builder;
 import lombok.Getter;

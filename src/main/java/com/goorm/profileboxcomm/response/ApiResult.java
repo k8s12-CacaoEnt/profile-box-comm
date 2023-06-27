@@ -1,7 +1,7 @@
-package com.goorm.profileboxcomm.utils;
+package com.goorm.profileboxcomm.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.goorm.profileboxcomm.enumeration.ApiResultType;
+import com.goorm.profileboxcomm.exception.ApiExceptionEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
