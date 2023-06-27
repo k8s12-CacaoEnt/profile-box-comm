@@ -1,19 +1,19 @@
 package com.goorm.profileboxcomm.dto.link.response;
 
-import com.goorm.profileboxcomm.entity.LinkEntity;
+import com.goorm.profileboxcomm.entity.Link;
 import lombok.Data;
 
 @Data
 public class SelectLinkResponseDto {
-    private String linkId;
+    private Long linkId;
     private String link;
     private String linkName;
     private String createDt;
 
-    public SelectLinkResponseDto(LinkEntity linkEntity) {
-        this.linkId = linkEntity.getLinkId().toString();
-        this.link = linkEntity.getLink();
-        this.linkName = linkEntity.getLinkName();
-        this.createDt = linkEntity.getCreateDt().toString();
+    public SelectLinkResponseDto(Link link) {
+        this.linkId = link.getLinkId();
+        this.link = link.getLink();
+        this.linkName = link.getLinkName();
+        this.createDt = link.getCreateDt().toString();
     }
 }

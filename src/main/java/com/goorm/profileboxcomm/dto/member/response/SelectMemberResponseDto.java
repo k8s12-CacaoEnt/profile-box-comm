@@ -1,12 +1,12 @@
 package com.goorm.profileboxcomm.dto.member.response;
 
-import com.goorm.profileboxcomm.entity.MemberEntity;
-import com.goorm.profileboxcomm.entity.enumeration.MemberType;
+import com.goorm.profileboxcomm.entity.Member;
+import com.goorm.profileboxcomm.enumeration.MemberType;
 import lombok.Data;
 
 @Data
 public class SelectMemberResponseDto {
-    private String memberId;
+    private Long memberId;
     private MemberType memberType;
     private String memberEmail;
     private String memberName;
@@ -14,8 +14,8 @@ public class SelectMemberResponseDto {
     private String telNo;
     private String birthDt;
 
-    public SelectMemberResponseDto(MemberEntity member) {
-        this.memberId = member.getMemberId().toString();
+    public SelectMemberResponseDto(Member member) {
+        this.memberId = member.getMemberId();
         this.memberType = member.getMemberType();
         this.memberEmail = member.getMemberEmail();
         this.memberName = member.getMemberName();

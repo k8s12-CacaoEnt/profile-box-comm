@@ -5,20 +5,19 @@ import com.goorm.profileboxcomm.dto.image.response.SelectImageResponseDto;
 import com.goorm.profileboxcomm.dto.link.response.SelectLinkResponseDto;
 import com.goorm.profileboxcomm.dto.member.response.SelectMemberResponseDto;
 import com.goorm.profileboxcomm.dto.video.response.SelectVideoResponseDto;
-import com.goorm.profileboxcomm.entity.ProfileEntity;
+import com.goorm.profileboxcomm.entity.Profile;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
 @Data
     public class SelectProfileResponseDto {
-        private String profileId;
+        private Long profileId;
         private String title;
         private String content;
-        private String defaultImageId;
+        private Long defaultImageId;
         private String createDt;
         private SelectMemberResponseDto memberInfo;
         private List<SelectImageResponseDto> images;
@@ -26,13 +25,11 @@ import static java.util.stream.Collectors.toList;
         private List<SelectFilmoResponseDto> filmos;
         private List<SelectLinkResponseDto> links;
 
-        public SelectProfileResponseDto(ProfileEntity profile) {
-            this.profileId = profile.getProfileId().toString();
+        public SelectProfileResponseDto(Profile profile) {
+            this.profileId = profile.getProfileId();
             this.content = profile.getContent();
             this.title = profile.getTitle();
-//            this.title = Optional.ofNullable(profile.getTitle()).orElse("");
-//            this.defaultImageId = profile.getDefaultImageId().toString();
-            this.defaultImageId = Optional.ofNullable(profile.getDefaultImageId()).map(Object::toString).orElse("");
+            this.defaultImageId = profile.getDefaultImageId();
             this.createDt = profile.getCreateDt().toString();
             this.memberInfo = new SelectMemberResponseDto(profile.getMember());
             this.images = profile.getImageEntities().stream()
@@ -47,7 +44,9 @@ import static java.util.stream.Collectors.toList;
             this.links = profile.getLinkEntities().stream()
                     .map(o -> new SelectLinkResponseDto(o))
                     .collect(toList());
-
+//            this.title = Optional.ofNullable(profile.getTitle()).orElse("");
+////            this.defaultImageId = profile.getDefaultImageId().toString();
+//            Optional.ofNullable(profile.getDefaultImageId()).map(Object::toString).orElse("");
 //            this.profileId = Optional.ofNullable(profile.getProfileId()).map(Object::toString).orElse("");
 //            this.content = Optional.ofNullable(profile.getContent()).orElse("");
 //            this.defaultImageId = Optional.ofNullable(profile.getDefaultImageId()).map(Object::toString).orElse("");

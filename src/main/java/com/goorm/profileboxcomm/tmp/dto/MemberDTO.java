@@ -1,14 +1,12 @@
 package com.goorm.profileboxcomm.tmp.dto;
 
-import com.goorm.profileboxcomm.entity.MemberEntity;
-import com.goorm.profileboxcomm.entity.enumeration.MemberType;
+import com.goorm.profileboxcomm.entity.Member;
+import com.goorm.profileboxcomm.enumeration.MemberType;
+import com.goorm.profileboxcomm.utils.Utils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 @Data
 @Builder
@@ -26,8 +24,8 @@ public class MemberDTO {
     private String birthDate;
     private Long profileId;
 
-    public static MemberEntity toEntity(final MemberDTO dto) throws ParseException {
-        return MemberEntity.builder()
+    public static Member toEntity(final MemberDTO dto) {
+        return Member.builder()
                 .memberId(dto.getId())
                 .memberType(MemberType.valueOf(dto.getUserType()))
                 .memberEmail(dto.getEmail())
@@ -35,7 +33,7 @@ public class MemberDTO {
                 .memberName(dto.getUsername())
                 .memberGender(dto.getGender())
                 .memberTelNo(dto.getTelNo())
-                .memberBirthDt(new SimpleDateFormat("yyyy-MM-dd").parse(dto.getBirthDate()))
+                .memberBirthDt(Utils.stringToDate(dto.getBirthDate()))
                 .build();
     }
 }

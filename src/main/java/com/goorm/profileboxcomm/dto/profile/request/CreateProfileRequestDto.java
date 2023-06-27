@@ -4,16 +4,27 @@ import com.goorm.profileboxcomm.dto.filmo.request.CreateFilmoRequestDto;
 import com.goorm.profileboxcomm.dto.image.request.CreateImageRequestDto;
 import com.goorm.profileboxcomm.dto.link.request.CreateLinkRequestDto;
 import com.goorm.profileboxcomm.dto.video.request.CreateVideoRequestDto;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 public class CreateProfileRequestDto {
-    private String content;
+
+    @NotNull(message = "프로필 타이틀을 입력해주세요.")
+    @NotBlank(message = "프로필 타이틀을 입력해주세요.")
     private String title;
-    private String defaultImageName;
-    private String memberId;
+
+    @NotNull(message = "프로필 자기소개를 입력해주세요.")
+    @NotBlank(message = "프로필 자기소개를 입력해주세요.")
+    private String content;
+
+    private int defaultImageIdx;
+
+    @NotNull(message = "프로필 작성 멤버ID를 확인해주세요.")
+    private Long memberId;
 
     private List<CreateImageRequestDto> images;
     private List<CreateVideoRequestDto> videos;
@@ -23,18 +34,4 @@ public class CreateProfileRequestDto {
     public CreateProfileRequestDto(){
 
     }
-
-//    public CreateProfileRequestDto(String content, String defaultImageName, String createDt, String memberid, List<FilmoDto> filmos, List<LinkDto> links, List<MultipartFile> imageFiles, List<MultipartFile> videoFiles, MultipartFile filmoFile, List<ImageDto> images, List<VideoDto> videos) {
-//        this.content = content;
-//        this.defaultImageName = defaultImageName;
-//        this.createDt = createDt;
-//        this.memberid = memberid;
-//        this.filmos = filmos;
-//        this.links = links;
-//        this.imageFiles = imageFiles;
-//        this.videoFiles = videoFiles;
-//        this.filmoFile = filmoFile;
-//        this.images = images;
-//        this.videos = videos;
-//    }
 }

@@ -1,11 +1,11 @@
 package com.goorm.profileboxcomm.dto.image.response;
 
-import com.goorm.profileboxcomm.entity.ImageEntity;
+import com.goorm.profileboxcomm.entity.Image;
 import lombok.Data;
 
 @Data
 public class SelectImageResponseDto {
-    private String imageId;
+    private Long imageId;
     private String fileName;
     private String filePath;
     private String fileRealName;
@@ -13,11 +13,11 @@ public class SelectImageResponseDto {
     public SelectImageResponseDto() {
     }
 
-    public SelectImageResponseDto(ImageEntity imageEntity) {
-        this.imageId = imageEntity.getImgageId().toString();
-        this.fileName = imageEntity.getFileName();
-        this.filePath = imageEntity.getFilePath();
-        this.fileRealName = imageEntity.getFileRealName();
-        this.createDt = imageEntity.getCreateDt().toString();
+    public SelectImageResponseDto(Image image) {
+        this.imageId = image.getImgageId();
+        this.fileName = image.getFileName();
+        this.filePath = image.getFilePath();
+        this.fileRealName = image.getFileRealName();
+        this.createDt = image.getCreateDt().toString();
     }
 }

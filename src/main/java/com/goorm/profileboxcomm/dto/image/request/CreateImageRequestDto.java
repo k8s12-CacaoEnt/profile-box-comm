@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CreateImageRequestDto {
+
     private String fileName;
     private String filePath;
     private String fileRealName;

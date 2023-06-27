@@ -1,7 +1,7 @@
 package com.goorm.profileboxcomm.tmp.dto;
 
-import com.goorm.profileboxcomm.entity.NoticeEntity;
-import com.goorm.profileboxcomm.entity.enumeration.FilmoType;
+import com.goorm.profileboxcomm.entity.Notice;
+import com.goorm.profileboxcomm.enumeration.FilmoType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,8 +30,8 @@ public class NoticeDTO {
     Timestamp modify_dt;
     Long member_id;
 
-    public static NoticeEntity toEntity(final NoticeDTO dto) throws ParseException {
-        return NoticeEntity.builder()
+    public static Notice toEntity(final NoticeDTO dto) throws ParseException {
+        return Notice.builder()
                 .noticeId(dto.getNoticeId())
                 .noticeTitle(dto.getTitle())
                 .noticeContent(dto.getContent())

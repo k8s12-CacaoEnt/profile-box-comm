@@ -8,9 +8,6 @@ public class CreateVideoRequestDto {
     private String fileRealName;
     private String filePath;
 
-    public CreateVideoRequestDto() {
-    }
-
     public CreateVideoRequestDto(String fileName, String fileRealName, String filePath) {
         this.fileName = fileName;
         this.fileRealName = fileRealName;

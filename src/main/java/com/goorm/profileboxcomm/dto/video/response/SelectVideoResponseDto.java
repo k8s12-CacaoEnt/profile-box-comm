@@ -1,22 +1,22 @@
 package com.goorm.profileboxcomm.dto.video.response;
 
-import com.goorm.profileboxcomm.entity.VideoEntity;
+import com.goorm.profileboxcomm.entity.Video;
 import lombok.Data;
 
 @Data
 public class SelectVideoResponseDto {
-    private String videoId;
+    private Long videoId;
     private String fileName;
     private String fileRealName;
     private String filePath;
     private String createDt;
 
-    public SelectVideoResponseDto(VideoEntity videoEntity) {
-        this.videoId = videoEntity.getVideoId().toString();
-        this.fileName = videoEntity.getFileName();
-        this.fileRealName = videoEntity.getFileRealName();
-        this.filePath = videoEntity.getFilePath();
-        this.createDt = videoEntity.getCreateDt().toString();
+    public SelectVideoResponseDto(Video video) {
+        this.videoId = video.getVideoId();
+        this.fileName = video.getFileName();
+        this.fileRealName = video.getFileRealName();
+        this.filePath = video.getFilePath();
+        this.createDt = video.getCreateDt().toString();
     }
 }
 
