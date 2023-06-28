@@ -62,6 +62,7 @@ public class Filmo {
     protected void onCreate() {
         LocalDateTime now = LocalDateTime.now();
         createDt = now;
+        modifyDt = now;
     }
 
     @PreUpdate

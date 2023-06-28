@@ -1,7 +1,7 @@
 package com.goorm.profileboxcomm.entity;
 
 import com.goorm.profileboxcomm.enumeration.FilmoType;
-import com.goorm.profileboxcomm.tmp.dto.NoticeDTO;
+import com.goorm.profileboxcomm.dto.notice.NoticeDTO;
 import com.goorm.profileboxcomm.utils.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -39,7 +39,6 @@ public class Notice {
 
     @Column(name = "filmo_type")
     @NotNull
-    @NotBlank
     private FilmoType filmoType;
 
     @Column(name = "filmo_name")
@@ -83,6 +82,7 @@ public class Notice {
     protected void onCreate() {
         LocalDateTime now = LocalDateTime.now();
         createDt = now;
+        modifyDt = now;
     }
 
     @PreUpdate
@@ -102,8 +102,8 @@ public class Notice {
                 .apply_deadline_dt(Utils.dateToString(entity.getApplyDeadlineDt()))
                 .filming_start_period(Utils.dateToString(entity.getFilmingStartPeriod()))
                 .filming_end_period(Utils.dateToString(entity.getFilmingEndPeriod()))
-                .create_dt(Utils.locaclDateToTimestamp(entity.getCreateDt()))
-                .modify_dt(Utils.locaclDateToTimestamp(entity.getModifyDt()))
+                .create_dt(Utils.localDateToString(entity.getCreateDt()))
+                .modify_dt(Utils.localDateToString(entity.getModifyDt()))
                 .member_id(entity.getMember().getMemberId())
                 .build();
     }

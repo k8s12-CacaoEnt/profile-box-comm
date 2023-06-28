@@ -2,7 +2,7 @@ package com.goorm.profileboxcomm.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.goorm.profileboxcomm.dto.profile.request.CreateProfileRequestDto;
-import com.goorm.profileboxcomm.tmp.dto.ProfileDTO;
+import com.goorm.profileboxcomm.dto.profile.ProfileDTO;
 import com.goorm.profileboxcomm.utils.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -99,8 +99,8 @@ public class Profile {
                 .content(entity.getContent())
                 .title(entity.getTitle())
                 .default_image_id(entity.getDefaultImageId())
-                .create_date(Utils.locaclDateToTimestamp(entity.getCreateDt()))
-                .modify_date(Utils.locaclDateToTimestamp(entity.getModifyDt()))
+                .create_date(Utils.localDateToString(entity.getCreateDt()))
+                .modify_date(Utils.localDateToString(entity.getModifyDt()))
                 .member_id(entity.getMember().getMemberId())
                 .build();
 

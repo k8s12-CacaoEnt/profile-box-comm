@@ -2,7 +2,7 @@ package com.goorm.profileboxcomm.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.goorm.profileboxcomm.enumeration.MemberType;
-import com.goorm.profileboxcomm.tmp.dto.MemberDTO;
+import com.goorm.profileboxcomm.dto.member.MemberDTO;
 import com.goorm.profileboxcomm.utils.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -100,7 +100,7 @@ public class Member {
                 .gender(entity.getMemberGender())
                 .telNo(entity.getMemberTelNo())
                 .birthDate(Utils.dateToString(entity.getMemberBirthDt()))
-                .profileId(entity.getProfile().getProfileId())
+//                .profileId(entity.getProfile().getProfileId())
                 .build();
     }
 }
