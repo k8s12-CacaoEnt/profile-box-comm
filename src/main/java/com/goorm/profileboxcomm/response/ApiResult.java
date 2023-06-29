@@ -10,16 +10,18 @@ import lombok.ToString;
 @Getter
 @NoArgsConstructor
 @ToString
-public class ApiResult{
+public class ApiResult<T>{
     private String status;
     private String message;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Object data;
+    private T data;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private ApiExceptionEntity exception;
 
     @Builder
-    public ApiResult(String status, String message, Object data, ApiExceptionEntity exception) {
+    public ApiResult(String status, String message, T data, ApiExceptionEntity exception) {
         this.status = status;
         this.message = message;
         this.data = data;

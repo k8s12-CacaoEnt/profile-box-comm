@@ -1,5 +1,6 @@
 package com.goorm.profileboxcomm.dto.profile.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.goorm.profileboxcomm.dto.filmo.request.CreateFilmoRequestDto;
 import com.goorm.profileboxcomm.dto.image.request.CreateImageRequestDto;
 import com.goorm.profileboxcomm.dto.link.request.CreateLinkRequestDto;
@@ -26,9 +27,13 @@ public class CreateProfileRequestDto {
     @NotNull(message = "프로필 작성 멤버ID를 확인해주세요.")
     private Long memberId;
 
+    @JsonIgnore
     private List<CreateImageRequestDto> images;
+    @JsonIgnore
     private List<CreateVideoRequestDto> videos;
+    @JsonIgnore
     private List<CreateFilmoRequestDto> filmos;
+    @JsonIgnore
     private List<CreateLinkRequestDto> links;
 
     public CreateProfileRequestDto(){

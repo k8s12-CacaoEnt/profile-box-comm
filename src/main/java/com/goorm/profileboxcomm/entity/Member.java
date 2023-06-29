@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.goorm.profileboxcomm.enumeration.MemberType;
 import com.goorm.profileboxcomm.dto.member.MemberDTO;
 import com.goorm.profileboxcomm.utils.Utils;
@@ -31,7 +32,7 @@ public class Member {
     @Enumerated(EnumType.STRING)
     @Column(name = "member_type")
     @NotNull
-    private MemberType memberType;
+    private MemberType memberType; // ACTOR, PRODUCER, ADMIN
 
     @Column(name = "member_email")
     @NotNull
@@ -41,6 +42,7 @@ public class Member {
     @Column(name = "member_password")
     @NotNull
     @NotBlank
+    @JsonIgnore
     private String memberPassword;
 
     @Column(name = "member_name")
