@@ -6,10 +6,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
     @Override
     Page<Profile> findAll(@Param("pageable") Pageable pageable);
 
-    Profile findProfileByProfileId(@Param("profileId") Long profileId);
+    Optional<Profile> findProfileByProfileId(@Param("profileId") Long profileId);
+
+    void deleteByProfileId(@Param("profileId") Long profileId);
 }

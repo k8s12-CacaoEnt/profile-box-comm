@@ -11,7 +11,8 @@ public enum ExceptionEnum {
     ACCESS_DENIED_EXCEPTION(HttpStatus.UNAUTHORIZED, "E0002"),
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "E0003"),
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "E0004", "멤버가 존재하지 않습니다."),
-    INVALID_REQUEST(HttpStatus.BAD_REQUEST, "E0005", "유효하지 않는 요청입니다."),
+    PROFILE_NOT_FOUND(HttpStatus.NOT_FOUND, "E0005", "프로필이 존재하지 않습니다."),
+    INVALID_REQUEST(HttpStatus.BAD_REQUEST, "E0006", "유효하지 않는 요청입니다."),
     INVALID_DATE_FORMAT(HttpStatus.BAD_REQUEST, "E0006", "데이트 포맷 파싱 에러입니다."),
     SECURITY(HttpStatus.UNAUTHORIZED, "CE0001", "로그인이 필요합니다.");
 
