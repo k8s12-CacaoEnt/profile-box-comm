@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.exception;
 
 import com.goorm.profileboxcomm.response.ApiResult;
+import com.goorm.profileboxcomm.response.ApiResultType;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,7 +21,7 @@ public class ApiExceptionAdvice {
         return ResponseEntity
                 .status(e.getError().getStatus())
                 .body(ApiResult.builder()
-                        .status("error")
+                        .status(ApiResultType.ERROR.toString())
                         .message("")
                         .exception(apiExceptionEntity)
                         .build());
@@ -36,7 +37,7 @@ public class ApiExceptionAdvice {
         return ResponseEntity
                 .status(ExceptionEnum.RUNTIME_EXCEPTION.getStatus())
                 .body(ApiResult.builder()
-                        .status("error")
+                        .status(ApiResultType.ERROR.toString())
                         .message("")
                         .exception(apiExceptionEntity)
                         .build());
@@ -52,7 +53,7 @@ public class ApiExceptionAdvice {
         return ResponseEntity
                 .status(ExceptionEnum.ACCESS_DENIED_EXCEPTION.getStatus())
                 .body(ApiResult.builder()
-                        .status("error")
+                        .status(ApiResultType.ERROR.toString())
                         .message("")
                         .exception(apiExceptionEntity)
                         .build());
@@ -68,7 +69,7 @@ public class ApiExceptionAdvice {
         return ResponseEntity
                 .status(ExceptionEnum.INTERNAL_SERVER_ERROR.getStatus())
                 .body(ApiResult.builder()
-                        .status("error")
+                        .status(ApiResultType.ERROR.toString())
                         .message("")
                         .exception(apiExceptionEntity)
                         .build());
