@@ -2,9 +2,17 @@ package com.goorm.profileboxcomm.config;
 
 
 import com.goorm.profileboxcomm.repository.MemberRepository;
+import com.goorm.profileboxcomm.security.JwtAuthenticationFilter;
+import com.goorm.profileboxcomm.security.JwtAuthorizationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.filter.CorsFilter;
 
 @EnableWebSecurity
@@ -38,5 +46,4 @@ public class SecurityConfig {
         return http.build();
     }
 
-}
 }

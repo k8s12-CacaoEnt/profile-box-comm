@@ -14,7 +14,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -105,4 +108,10 @@ public class Member {
 //                .profileId(entity.getProfile().getProfileId())
                 .build();
     }
+
+    public List<String> getRoleList(){
+        if(this.memberType.toString().length() > 0) return Arrays.asList(this.memberType.toString().split(","));
+        return new ArrayList<>();
+    }
+
 }
