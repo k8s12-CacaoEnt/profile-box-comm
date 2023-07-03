@@ -16,6 +16,11 @@ custom:
     imagePath: images/
     videoPath: videos/
 
+#spring:
+#  redis:
+#    host: localhost
+#    port: 6379
+
 #---
 #custom:
 #  config:
