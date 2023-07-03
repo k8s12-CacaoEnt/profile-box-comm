@@ -31,7 +31,6 @@ public class NoticeDTO {
 
     public static Notice toEntity(final NoticeDTO dto) throws ParseException {
         return Notice.builder()
-                .noticeId(dto.getNoticeId())
                 .noticeTitle(dto.getTitle())
                 .noticeContent(dto.getContent())
                 .filmoType(FilmoType.valueOf(dto.getFilmo_type()))

@@ -16,7 +16,7 @@ public class ApiExceptionAdvice {
                 .errorCode(e.getError().getCode())
                 .errorMessage(e.getError().getMessage())
                 .build();
-        //e.printStackTrace();
+        e.printStackTrace();
         return ResponseEntity
                 .status(e.getError().getStatus())
                 .body(ApiResult.builder()

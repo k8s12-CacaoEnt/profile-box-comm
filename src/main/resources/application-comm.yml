@@ -31,14 +31,14 @@ custom:
 #    imagePath: images/
 #    videoPath: videos/
 ---
-server:
-  config:
-    activate:
-      on-profile: prod
-  port: 8080
-  error.include-message: always
-  tomcat:
-    max-swallow-size: -1
+#server:
+#  config:
+#    activate:
+#      on-profile: prod
+#  port: 8080
+#  error.include-message: always
+#  tomcat:
+#    max-swallow-size: -1
 
 spring:
   config:
