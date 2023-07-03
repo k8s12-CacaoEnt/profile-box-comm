@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.config;
 
 
+import com.goorm.profileboxcomm.enumeration.MemberType;
 import com.goorm.profileboxcomm.repository.MemberRepository;
 import com.goorm.profileboxcomm.security.JwtAuthenticationFilter;
 import com.goorm.profileboxcomm.security.JwtAuthorizationFilter;
@@ -8,10 +9,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.filter.CorsFilter;
 
@@ -25,6 +28,11 @@ public class SecurityConfig {
     private MemberRepository memberRepository;
 
     @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+
     public AuthenticationManager authenticationManager() throws Exception{
         return authenticationConfiguration.getAuthenticationManager();
     }
@@ -41,7 +49,9 @@ public class SecurityConfig {
                 .formLogin().disable()
                 .httpBasic().disable()
                 .authorizeHttpRequests()
-                //.requestMatchers("api/v1/notice/admin/**").hasRole("ADMIN") 추후에 usertype을 나누는게 확실하다면 이 주석 풀기.
+                // hasRole이나 hasAnyRole은 "ROLE_" prefix를 붙여버림.
+                .requestMatchers("v1/notice/admin/**").hasAnyAuthority("ADMIN", "PRODUCER")
+                //.requestMatchers("v1/notice/admin/**").hasAuthority("ADMIN")
                 .anyRequest().permitAll();
         return http.build();
     }

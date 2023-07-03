@@ -45,7 +45,7 @@ public class Member {
     @Column(name = "member_password")
     @NotNull
     @NotBlank
-    @JsonIgnore
+    //@JsonIgnore - 로그인할 때 request에서 password정보가 null이길래 주석 처리함.!!! member request/response dto 분리하기
     private String memberPassword;
 
     @Column(name = "member_name")
@@ -97,14 +97,14 @@ public class Member {
     // method
     public static MemberDTO toDTO(Member entity){
         return MemberDTO.builder()
-                .id(entity.getMemberId())
-                .userType(entity.getMemberType().toString())
-                .email(entity.getMemberEmail())
-                .password(entity.getMemberPassword())
-                .username(entity.getMemberName())
-                .gender(entity.getMemberGender())
-                .telNo(entity.getMemberTelNo())
-                .birthDate(Utils.dateToString(entity.getMemberBirthDt()))
+                .memberId(entity.getMemberId())
+                .memberType(entity.getMemberType().toString())
+                .memberEmail(entity.getMemberEmail())
+                .memberPassword(entity.getMemberPassword())
+                .memberName(entity.getMemberName())
+                .memberGender(entity.getMemberGender())
+                .memberTelNo(entity.getMemberTelNo())
+                .memberBirthDt(Utils.dateToString(entity.getMemberBirthDt()))
 //                .profileId(entity.getProfile().getProfileId())
                 .build();
     }
