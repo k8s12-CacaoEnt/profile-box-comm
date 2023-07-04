@@ -1,4 +1,5 @@
 package com.goorm.profileboxcomm.repository;
+import com.goorm.profileboxcomm.entity.Member;
 import com.goorm.profileboxcomm.entity.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,8 @@ public interface ProfileRepository extends JpaRepository<Profile, Long> {
     Page<Profile> findAll(@Param("pageable") Pageable pageable);
 
     Optional<Profile> findProfileByProfileId(@Param("profileId") Long profileId);
+
+    boolean existsProfileByMember(@Param("member") Member member);
 
     void deleteByProfileId(@Param("profileId") Long profileId);
 }

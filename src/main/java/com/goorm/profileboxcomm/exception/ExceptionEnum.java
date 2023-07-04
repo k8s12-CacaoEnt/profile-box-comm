@@ -16,6 +16,7 @@ public enum ExceptionEnum {
     INVALID_REQUEST(HttpStatus.BAD_REQUEST, "E0007", "유효하지 않는 요청입니다."),
     INVALID_DATE_FORMAT(HttpStatus.BAD_REQUEST, "E0008", "데이트 포맷 파싱 에러입니다."),
     NOTICE_NOT_FOUND(HttpStatus.NOT_FOUND, "E0009", "공지사항이 존재하지 않습니다."),
+    PROFILE_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "E0010", "프로필이 이미 존재합니다."),
     SECURITY(HttpStatus.UNAUTHORIZED, "CE0001", "로그인이 필요합니다.");
 
     private final HttpStatus status;

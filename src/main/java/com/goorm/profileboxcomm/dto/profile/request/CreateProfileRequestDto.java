@@ -1,6 +1,5 @@
 package com.goorm.profileboxcomm.dto.profile.request;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.goorm.profileboxcomm.dto.filmo.request.CreateFilmoRequestDto;
 import com.goorm.profileboxcomm.dto.image.request.CreateImageRequestDto;
 import com.goorm.profileboxcomm.dto.link.request.CreateLinkRequestDto;
@@ -32,7 +31,4 @@ public class CreateProfileRequestDto {
     private List<CreateFilmoRequestDto> filmos;
     private List<CreateLinkRequestDto> links;
 
-    public CreateProfileRequestDto(){
-
-    }
 }

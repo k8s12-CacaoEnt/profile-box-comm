@@ -15,8 +15,4 @@ public class CreateLinkRequestDto {
     @NotBlank(message = "링크명을 입력해주세요.")
     private String linkName;
 
-    public CreateLinkRequestDto(String link, String linkName) {
-        this.link = link;
-        this.linkName = linkName;
-    }
 }

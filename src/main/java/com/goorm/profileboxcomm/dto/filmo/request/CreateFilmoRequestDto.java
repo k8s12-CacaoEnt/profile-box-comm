@@ -1,6 +1,5 @@
 package com.goorm.profileboxcomm.dto.filmo.request;
 
-import com.goorm.profileboxcomm.dto.image.request.CreateImageRequestDto;
 import com.goorm.profileboxcomm.enumeration.FilmoType;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,10 +26,4 @@ public class CreateFilmoRequestDto {
     @NotBlank(message = "필모그래피 감독을 입력해주세요.")
     private String filmoDirector;
 
-    public CreateFilmoRequestDto(FilmoType filmoType, String filmoName, String filmoYear, String filmoDirector, CreateImageRequestDto filmoImage) {
-        this.filmoType = filmoType;
-        this.filmoName = filmoName;
-        this.filmoYear = filmoYear;
-        this.filmoDirector = filmoDirector;
-    }
 }

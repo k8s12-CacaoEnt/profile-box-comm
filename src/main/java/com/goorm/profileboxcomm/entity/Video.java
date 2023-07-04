@@ -1,6 +1,5 @@
 package com.goorm.profileboxcomm.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.goorm.profileboxcomm.dto.video.request.CreateVideoRequestDto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -45,7 +44,6 @@ public class Video {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id")
-    @JsonBackReference
     private Profile profile;
 
     // Getters and Setters

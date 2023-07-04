@@ -1,6 +1,5 @@
 package com.goorm.profileboxcomm.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.goorm.profileboxcomm.dto.filmo.request.CreateFilmoRequestDto;
 import com.goorm.profileboxcomm.enumeration.FilmoType;
 import jakarta.persistence.*;
@@ -54,7 +53,6 @@ public class Filmo {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id")
-    @JsonBackReference
     private Profile profile;
 
     // Getters and Setters
