@@ -49,4 +49,8 @@ public class FileHandler {
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteFile(String filePath){
+        s3Uploader.deleteS3File(filePath);
+    }
 }

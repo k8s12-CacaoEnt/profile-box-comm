@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.utils;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,5 +49,9 @@ public class S3Uploader {
     private String generateS3FileUrl(String bucketName, String fileName) {
         String s3BaseUrl = "https://s3.amazonaws.com";
         return s3BaseUrl + "/" + bucketName + "/"  + fileName;
+    }
+
+    public void deleteS3File(String filePath){
+        amazonS3Client.deleteObject(new DeleteObjectRequest(bucketName, filePath));
     }
 }
