@@ -27,13 +27,9 @@ public class CreateProfileRequestDto {
     @NotNull(message = "프로필 작성 멤버ID를 확인해주세요.")
     private Long memberId;
 
-    @JsonIgnore
     private List<CreateImageRequestDto> images;
-    @JsonIgnore
     private List<CreateVideoRequestDto> videos;
-    @JsonIgnore
     private List<CreateFilmoRequestDto> filmos;
-    @JsonIgnore
     private List<CreateLinkRequestDto> links;
 
     public CreateProfileRequestDto(){
