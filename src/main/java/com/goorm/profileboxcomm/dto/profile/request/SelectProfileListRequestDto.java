@@ -15,14 +15,14 @@ public class SelectProfileListRequestDto {
     private int offset;
     private int limit;
     private String sortKey;
-    private String gender;
-    private int age;
+//    private String gender;
+//    private int age;
 
     public SelectProfileListRequestDto() {
-        this.offset = 0;
+        this.offset = 1;
         this.limit = 10;
         this.sortKey = "ProfileId";
-        this.gender = "";
-        this.age = 0;
+//        this.gender = "";
+//        this.age = 0;
     }
 }

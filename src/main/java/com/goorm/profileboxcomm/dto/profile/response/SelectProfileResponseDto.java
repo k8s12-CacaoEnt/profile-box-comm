@@ -44,25 +44,5 @@ import static java.util.stream.Collectors.toList;
             this.links = profile.getLinkEntities().stream()
                     .map(o -> new SelectLinkResponseDto(o))
                     .collect(toList());
-//            this.title = Optional.ofNullable(profile.getTitle()).orElse("");
-////            this.defaultImageId = profile.getDefaultImageId().toString();
-//            Optional.ofNullable(profile.getDefaultImageId()).map(Object::toString).orElse("");
-//            this.profileId = Optional.ofNullable(profile.getProfileId()).map(Object::toString).orElse("");
-//            this.content = Optional.ofNullable(profile.getContent()).orElse("");
-//            this.defaultImageId = Optional.ofNullable(profile.getDefaultImageId()).map(Object::toString).orElse("");
-//            this.createDt = Optional.ofNullable(profile.getCreateDt()).map(Object::toString).orElse("");
-//            this.memberInfo = Optional.ofNullable(profile.getMember()).map(MemberDto::new).orElse(null);
-//            this.images = Optional.ofNullable(profile.getImages()).orElse(Collections.emptyList()).stream()
-//                    .map(SelectImageResponseDto::new)
-//                    .collect(Collectors.toList());
-//            this.videos = Optional.ofNullable(profile.getVideos()).orElse(Collections.emptyList()).stream()
-//                    .map(SelectVideoResponseDto::new)
-//                    .collect(Collectors.toList());
-//            this.filmos = Optional.ofNullable(profile.getFilmos()).orElse(Collections.emptyList()).stream()
-//                    .map(SelectFilmoResponseDto::new)
-//                    .collect(Collectors.toList());
-//            this.links = Optional.ofNullable(profile.getLinks()).orElse(Collections.emptyList()).stream()
-//                    .map(SelectLinkResponseDto::new)
-//                    .collect(Collectors.toList());
         }
     }
