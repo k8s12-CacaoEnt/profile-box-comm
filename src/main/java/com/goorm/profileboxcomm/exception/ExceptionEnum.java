@@ -23,7 +23,7 @@ public enum ExceptionEnum {
 
     SECURITY(HttpStatus.UNAUTHORIZED, "CE0001", "로그인이 필요합니다."),
     ACCESS_DENIED_EXCEPTION(HttpStatus.UNAUTHORIZED, "CE0002", ""),
-    NOT_RESPONSE_ADMIN_API(HttpStatus.UNAUTHORIZED, "CE0003", "로그인이 필요합니다."),
+    NOT_RESPONSE_ADMIN_API(HttpStatus.UNAUTHORIZED, "CE0003", "ADMIN API 통신 오류입니다."),
     TOKEN_NOT_FOUND(HttpStatus.UNAUTHORIZED, "CE0004", "토큰이 존재하지 않습니다."),
     EXFIRED_TOKEN(HttpStatus.UNAUTHORIZED, "CE0005", "토큰이 만료되었습니다.");
 
