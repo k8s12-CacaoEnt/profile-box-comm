@@ -14,7 +14,7 @@ public class SelectImageResponseDto {
     }
 
     public SelectImageResponseDto(Image image) {
-        this.imageId = image.getImgageId();
+        this.imageId = image.getImageId();
         this.fileName = image.getFileName();
         this.filePath = image.getFilePath();
         this.fileRealName = image.getFileRealName();

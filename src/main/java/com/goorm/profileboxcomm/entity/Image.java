@@ -21,7 +21,7 @@ public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long imgageId;
+    private Long imageId;
 
     @Column(name = "file_name")
     @NotNull
