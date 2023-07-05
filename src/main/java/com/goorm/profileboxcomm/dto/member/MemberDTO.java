@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.dto.member;
 
 import com.goorm.profileboxcomm.entity.Member;
+import com.goorm.profileboxcomm.enumeration.GenderType;
 import com.goorm.profileboxcomm.enumeration.MemberType;
 import com.goorm.profileboxcomm.utils.Utils;
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ public class MemberDTO {
                 .memberEmail(dto.getMemberEmail())
                 .memberPassword(dto.getMemberPassword())
                 .memberName(dto.getMemberName())
-                .memberGender(dto.getMemberGender())
+                .memberGender(GenderType.valueOf(dto.getMemberGender()))
                 .memberTelNo(dto.getMemberTelNo())
                 .memberBirthDt(Utils.stringToDate(dto.getMemberBirthDt()))
                 .build();

@@ -1,9 +1,9 @@
 package com.goorm.profileboxcomm.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.goorm.profileboxcomm.enumeration.MemberType;
 import com.goorm.profileboxcomm.dto.member.MemberDTO;
+import com.goorm.profileboxcomm.enumeration.GenderType;
+import com.goorm.profileboxcomm.enumeration.MemberType;
 import com.goorm.profileboxcomm.utils.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -55,8 +55,7 @@ public class Member {
 
     @Column(name = "member_gender")
     @NotNull
-    @NotBlank
-    private String memberGender;
+    private GenderType memberGender; // MALE, FEMALE
 
     @Column(name = "member_tel_no")
     @NotNull
@@ -102,7 +101,7 @@ public class Member {
                 .memberEmail(entity.getMemberEmail())
                 .memberPassword(entity.getMemberPassword())
                 .memberName(entity.getMemberName())
-                .memberGender(entity.getMemberGender())
+                .memberGender(entity.getMemberGender().toString())
                 .memberTelNo(entity.getMemberTelNo())
                 .memberBirthDt(Utils.dateToString(entity.getMemberBirthDt()))
 //                .profileId(entity.getProfile().getProfileId())

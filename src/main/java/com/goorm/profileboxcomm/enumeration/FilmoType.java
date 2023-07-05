@@ -1,5 +1,10 @@
 package com.goorm.profileboxcomm.enumeration;
 
 public enum FilmoType {
-    MOVIE, DRAMA
+    MOVIE, DRAMA;
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

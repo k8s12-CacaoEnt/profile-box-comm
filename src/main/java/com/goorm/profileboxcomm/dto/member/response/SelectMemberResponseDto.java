@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.dto.member.response;
 
 import com.goorm.profileboxcomm.entity.Member;
+import com.goorm.profileboxcomm.enumeration.GenderType;
 import com.goorm.profileboxcomm.enumeration.MemberType;
 import lombok.Data;
 
@@ -10,7 +11,7 @@ public class SelectMemberResponseDto {
     private MemberType memberType;
     private String memberEmail;
     private String memberName;
-    private String gender;
+    private GenderType gender;
     private String telNo;
     private String birthDt;
 
