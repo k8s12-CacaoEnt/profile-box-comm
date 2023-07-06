@@ -53,6 +53,7 @@ public class Member {
     @NotBlank
     private String memberName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "member_gender")
     @NotNull
     private GenderType memberGender; // MALE, FEMALE
