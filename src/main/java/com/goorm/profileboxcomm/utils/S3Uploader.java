@@ -24,12 +24,15 @@ public class S3Uploader {
     @Value("${cloud.aws.s3.bucket}")
     private String bucketName;
 
+    @Value("${cloud.aws.region.static}")
+    private String region;
+
     public String uploadMultipartFile(MultipartFile multipartFile, String fileName) throws IOException {
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentType(multipartFile.getContentType());
         metadata.setContentLength(multipartFile.getSize());
         amazonS3Client.putObject(bucketName, fileName, multipartFile.getInputStream(), metadata);
-        return generateS3FileUrl(bucketName, fileName);
+        return generateS3FileUrl(fileName);
     }
 
     public String generateUniqueFileName(String originalFilename) {
@@ -46,9 +49,9 @@ public class S3Uploader {
         }
     }
 
-    private String generateS3FileUrl(String bucketName, String fileName) {
-        String s3BaseUrl = "https://s3.amazonaws.com";
-        return s3BaseUrl + "/" + bucketName + "/"  + fileName;
+    private String generateS3FileUrl(String fileName) {
+        String s3Url = String.format("https://%s.s3.%s.amazonaws.com/%s", bucketName, region, fileName);
+        return s3Url;
     }
 
     public void deleteS3File(String filePath){
