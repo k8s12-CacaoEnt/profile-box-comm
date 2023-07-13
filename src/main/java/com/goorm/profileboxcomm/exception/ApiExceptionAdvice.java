@@ -13,7 +13,6 @@ public class ApiExceptionAdvice {
     @ExceptionHandler({ApiException.class})
     public ResponseEntity<ApiResult> exceptionHandler(final ApiException e) {
         ApiExceptionEntity apiExceptionEntity = ApiExceptionEntity.builder()
-                .errorCode(e.getError().getCode())
                 .errorMessage(e.getError().getMessage())
                 .build();
         e.printStackTrace();
@@ -21,15 +20,15 @@ public class ApiExceptionAdvice {
                 .status(e.getError().getStatus())
                 .body(ApiResult.builder()
                         .status(ApiResultType.ERROR.toString())
-                        .message("")
-                        .exception(apiExceptionEntity)
+                        .statusCode(e.getError().getStatus().value())
+                        .message(apiExceptionEntity.getErrorMessage())
+//                        .exception(apiExceptionEntity)
                         .build());
     }
 
     @ExceptionHandler({RuntimeException.class})
     public ResponseEntity<ApiResult> exceptionHandler(final RuntimeException e) {
         ApiExceptionEntity apiExceptionEntity = ApiExceptionEntity.builder()
-                .errorCode(ExceptionEnum.RUNTIME_EXCEPTION.getCode())
                 .errorMessage(e.getMessage())
                 .build();
         e.printStackTrace();
@@ -37,15 +36,15 @@ public class ApiExceptionAdvice {
                 .status(ExceptionEnum.RUNTIME_EXCEPTION.getStatus())
                 .body(ApiResult.builder()
                         .status(ApiResultType.ERROR.toString())
-                        .message("")
-                        .exception(apiExceptionEntity)
+                        .statusCode(ExceptionEnum.RUNTIME_EXCEPTION.getStatus().value())
+                        .message(apiExceptionEntity.getErrorMessage())
+//                        .exception(apiExceptionEntity)
                         .build());
     }
 
     @ExceptionHandler({AccessDeniedException.class})
     public ResponseEntity<ApiResult> exceptionHandler(final AccessDeniedException e) {
         ApiExceptionEntity apiExceptionEntity = ApiExceptionEntity.builder()
-                .errorCode(ExceptionEnum.ACCESS_DENIED_EXCEPTION.getCode())
                 .errorMessage(e.getMessage())
                 .build();
         e.printStackTrace();
@@ -53,15 +52,15 @@ public class ApiExceptionAdvice {
                 .status(ExceptionEnum.ACCESS_DENIED_EXCEPTION.getStatus())
                 .body(ApiResult.builder()
                         .status(ApiResultType.ERROR.toString())
-                        .message("")
-                        .exception(apiExceptionEntity)
+                        .statusCode(ExceptionEnum.ACCESS_DENIED_EXCEPTION.getStatus().value())
+                        .message(apiExceptionEntity.getErrorMessage())
+//                        .exception(apiExceptionEntity)
                         .build());
     }
 
     @ExceptionHandler({Exception.class})
     public ResponseEntity<ApiResult> exceptionHandler(final Exception e) {
         ApiExceptionEntity apiExceptionEntity = ApiExceptionEntity.builder()
-                .errorCode(ExceptionEnum.INTERNAL_SERVER_ERROR.getCode())
                 .errorMessage(e.getMessage())
                 .build();
         e.printStackTrace();
@@ -69,8 +68,9 @@ public class ApiExceptionAdvice {
                 .status(ExceptionEnum.INTERNAL_SERVER_ERROR.getStatus())
                 .body(ApiResult.builder()
                         .status(ApiResultType.ERROR.toString())
-                        .message("")
-                        .exception(apiExceptionEntity)
+                        .statusCode(ExceptionEnum.INTERNAL_SERVER_ERROR.getStatus().value())
+                        .message(apiExceptionEntity.getErrorMessage())
+//                        .exception(apiExceptionEntity)
                         .build());
     }
 }

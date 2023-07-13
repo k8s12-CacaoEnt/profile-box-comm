@@ -14,7 +14,8 @@ import java.util.Date;
 public class Utils {
 
     public static String dateToString(Date date) {
-        return date.toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
     }
 
     public static Date stringToDate(String date) {

@@ -1,6 +1,10 @@
 package com.goorm.profileboxcomm.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.goorm.profileboxcomm.dto.member.MemberDTO;
 import com.goorm.profileboxcomm.enumeration.GenderType;
 import com.goorm.profileboxcomm.enumeration.MemberType;
@@ -13,6 +17,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +30,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name= "member", uniqueConstraints = {@UniqueConstraint(columnNames = "member_email")})
-public class Member {
+public class Member implements Serializable {
 
     @Id
     @Column(name="member_id")
@@ -69,10 +74,14 @@ public class Member {
     private Date memberBirthDt;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "create_dt")
     private LocalDateTime createDt;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "modify_dt")
     private LocalDateTime modifyDt;
 
