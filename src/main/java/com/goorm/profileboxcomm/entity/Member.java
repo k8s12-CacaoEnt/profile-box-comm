@@ -17,7 +17,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +29,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name= "member", uniqueConstraints = {@UniqueConstraint(columnNames = "member_email")})
-public class Member implements Serializable {
+public class Member{
 
     @Id
     @Column(name="member_id")
@@ -50,7 +49,6 @@ public class Member implements Serializable {
     @Column(name = "member_password")
     @NotNull
     @NotBlank
-    //@JsonIgnore - 로그인할 때 request에서 password정보가 null이길래 주석 처리함.!!! member request/response dto 분리하기
     private String memberPassword;
 
     @Column(name = "member_name")
@@ -122,5 +120,4 @@ public class Member implements Serializable {
         if(this.memberType.toString().length() > 0) return Arrays.asList(this.memberType.toString().split(","));
         return new ArrayList<>();
     }
-
 }

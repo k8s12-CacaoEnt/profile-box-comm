@@ -1,9 +1,10 @@
 package com.goorm.profileboxcomm.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.goorm.profileboxcomm.dto.profile.request.CreateProfileRequestDto;
 import com.goorm.profileboxcomm.dto.profile.ProfileDTO;
+import com.goorm.profileboxcomm.dto.profile.request.CreateProfileRequestDto;
 import com.goorm.profileboxcomm.utils.Utils;
+import com.querydsl.core.annotations.QueryEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Data
 @Entity
+@QueryEntity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
