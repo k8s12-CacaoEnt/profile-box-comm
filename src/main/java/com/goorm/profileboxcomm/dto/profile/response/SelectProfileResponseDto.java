@@ -29,7 +29,7 @@ import static java.util.stream.Collectors.toList;
             this.profileId = profile.getProfileId();
             this.content = profile.getContent();
             this.title = profile.getTitle();
-            this.defaultImageId = profile.getDefaultImageId();
+            this.defaultImageId = profile.getDefaultImageId() == null ? profile.getImageEntities().get(0).getImageId() : profile.getDefaultImageId();
             this.createDt = profile.getCreateDt().toString();
             this.memberInfo = new SelectMemberResponseDto(profile.getMember());
             this.images = profile.getImageEntities().stream()
