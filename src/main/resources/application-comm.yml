@@ -9,7 +9,6 @@ cloud:
       static: ap-northeast-2
     stack:
       auto: false
-
 custom:
   storage:
     filePath: storage/files/
@@ -33,17 +32,4 @@ spring:
   data:
     redis:
       host: example-replication-group.eigq1z.ng.0001.apn2.cache.amazonaws.com
-      port: 6379
-      lettuce:
-        read:
-          host: example-replication-group-ro.eigq1z.ng.0001.apn2.cache.amazonaws.com
-          port: 6379
----
-spring:
-  config:
-    activate:
-      on-profile: local
-  data:
-    redis:
-      host: localhost
       port: 6379
