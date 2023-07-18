@@ -6,11 +6,17 @@ import com.goorm.profileboxcomm.dto.link.request.CreateLinkRequestDto;
 import com.goorm.profileboxcomm.dto.video.request.CreateVideoRequestDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreateProfileRequestDto {
 
     @NotNull(message = "프로필 타이틀을 입력해주세요.")
