@@ -51,7 +51,7 @@ dependencies {
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+//	useJUnitPlatform()
 }
 
 // Querydsl 설정부
