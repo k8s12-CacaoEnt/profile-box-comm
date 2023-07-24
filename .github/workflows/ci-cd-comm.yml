@@ -104,7 +104,7 @@ jobs:
       run: |
           cd ${{ env.GITOPS_REPOSITORY }}/${{ env.GITOPS_USER_DIR }}
           sed -i 's/${{ env.AWS_ECR_USER_REPOSITORY }}:.*/${{ env.AWS_ECR_USER_REPOSITORY }}:${{ env.IMG_TAG }}/' ${{env.GITOPS_YAML_FILE}}
-          cd ../../../
+          cd ../../../../
           cd ${{ env.GITOPS_REPOSITORY }}/${{ env.GITOPS_ADMIN_DIR }}
           sed -i 's/${{ env.AWS_ECR_ADMIN_REPOSITORY }}:.*/${{ env.AWS_ECR_ADMIN_REPOSITORY }}:${{ env.IMG_TAG }}/' ${{env.GITOPS_YAML_FILE}}
           cd ../../../
