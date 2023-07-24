@@ -9,37 +9,12 @@ cloud:
       static: ap-northeast-2
     stack:
       auto: false
-
 custom:
   storage:
     filePath: storage/files/
     imagePath: images/
     videoPath: videos/
-
-#spring:
-#  redis:
-#    host: localhost
-#    port: 6379
-
-#---
-#custom:
-#  config:
-#    activate:
-#      on-profile: local
-#  storage:
-#    filePath: /Users/hyenee/Downloads/workspace/goorm/msa/storage/files/
-#    imagePath: images/
-#    videoPath: videos/
 ---
-#server:
-#  config:
-#    activate:
-#      on-profile: prod
-#  port: 8080
-#  error.include-message: always
-#  tomcat:
-#    max-swallow-size: -1
-
 spring:
   config:
     activate:
@@ -54,12 +29,7 @@ spring:
 #    url: jdbc:postgresql://rds-profilehub2.c28euk17mhxq.ap-northeast-2.rds.amazonaws.com:5432/dev
 #    username: dev
 #    password: 1234
-
-#custom:
-#  config:
-#    activate:
-#      on-profile: prod
-#  storage:
-#    filePath: storage/files/
-#    imagePath: images/
-#    videoPath: videos/
+  data:
+    redis:
+      host: example-replication-group.eigq1z.ng.0001.apn2.cache.amazonaws.com
+      port: 6379

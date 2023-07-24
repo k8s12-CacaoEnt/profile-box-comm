@@ -1,6 +1,7 @@
 package com.goorm.profileboxcomm.dto.profile.request;
 
 import lombok.Data;
+import org.springframework.data.domain.Sort;
 
 @Data
 public class SelectProfileListRequestDto {
@@ -15,6 +16,7 @@ public class SelectProfileListRequestDto {
     private int offset;
     private int limit;
     private String sortKey;
+    private String sortDirection;
 //    private String gender;
 //    private int age;
 
@@ -22,6 +24,7 @@ public class SelectProfileListRequestDto {
         this.offset = 1;
         this.limit = 10;
         this.sortKey = "ProfileId";
+        this.sortDirection = Sort.Direction.DESC.toString();
 //        this.gender = "";
 //        this.age = 0;
     }
